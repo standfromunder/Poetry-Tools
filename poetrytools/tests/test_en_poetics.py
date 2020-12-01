@@ -1,17 +1,14 @@
 import os
 import unittest
-from poetrytools import PoetryEN
+from poetrytools.PoetryEN import PoetryEN
 
 
 class TestENPoems(unittest.TestCase):
     def setUp(self):
         self.poetryEN = PoetryEN('cmudict/cmudict.json')
-        t = os.getcwd()
-        print(os.curdir)
-
 
     def open_poem(self, poem):
-        with open(os.path.join('..','poems', poem)) as f:
+        with open(os.path.join('..','poems', 'en', poem)) as f:
             return self.poetryEN.tokenize(f.read())
 
     def test_haiku(self):

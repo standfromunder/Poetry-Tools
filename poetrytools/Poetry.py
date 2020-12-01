@@ -5,8 +5,8 @@ import codecs
 from collections import defaultdict
 from string import ascii_lowercase
 from Levenshtein import distance
-from countsyl import count_syllables
-from simpletokenizer import tokenize
+from poetrytools.countsyl import count_syllables
+from poetrytools.simpletokenizer import tokenize
 
 POSSIBLE_METRES = {
     'iambic trimeter': '010101',
