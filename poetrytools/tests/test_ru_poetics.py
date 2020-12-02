@@ -8,7 +8,7 @@ class TestENPoems(unittest.TestCase):
         self.poetryRUS = PoetryRU('cmudict/ru_cmudict.json')
 
     def open_poem(self, poem):
-        with open(os.path.join('..','poems', 'ru', poem)) as f:
+        with open(os.path.join('..','poems', 'ru', poem), encoding='utf-8') as f:
             return self.poetryRUS.tokenize(f.read())
 
     def test_rhyme_1(self):
