@@ -16,28 +16,35 @@ Install with ```python setup.py install```
 
 ```python
 >>> import poetrytools
->>> poetrytools.rhymes('show', 'hello')
+>>> from poetrytools.PoetryEN import PoetryEN
+>>> poetryEN = PoetryEN.PoetryEN('cmudict/cmudict.json')
+>>> poetryEN.rhymes('show', 'hello')
 True
 >>> haiku = """savannah dust trails
 ... whistling thorn hovers above
 ... hungry giraffe grows"""
->>> poem = poetrytools.tokenize(haiku) # need to tokenize the poem first
->>> poetrytools.scanscion(poem)
+>>> poem = PoetryEN.tokenize(haiku) # need to tokenize the poem first
+[['savannah', 'dust', 'trails'],
+ ['whistling', 'thorn', 'hovers', 'above'],
+ ['hungry', 'giraffe', 'grows']]
+>>> poetryEN.scanscion(poem)
 [['010', '1', '1'], ['10', '1', '10', '01'], ['10', '01', '1']]
->>> poetrytools.guess_form(poem)
+>>> poetryEN.guess_form(poem)
 'haiku'
 >>> limerick = """The limerick packs laughs anatomical
 ... Into space that is quite economical.
 ... But the good ones I've seen
 ... So seldom are clean
 ... And the clean ones so seldom are comical."""
->>> poem = poetrytools.tokenize(limerick)
->>> poetrytools.guess_form(poem, verbose=True)
+>>> poem = PoetryEN.tokenize(limerick)
+>>> poetryEN.guess_form(poem, verbose=True)
 Metre: 01001110100 00110110100 100111 11011 10111101100
 Rhyme scheme: aabba
+Stanza lengths: 5
 
 Closest metre: trochaic tetrameter
 Closest rhyme: limerick
+Closest stanza type: cinquains
 Guessed form: 'limerick'
 ```
 
