@@ -12,10 +12,10 @@ Examples
 ------------
 Open Poetry-Tools\poetrytools\tests\test_ru_poetics.py
 
-Run def test_rhyme_1
+Run `def test_rhyme_1`  
 Result: True
 
-Run def test_rhyme_scheme
+Run `def test_rhyme_scheme`  
 Result: Rhyme scheme: aabb
 
 Notes
