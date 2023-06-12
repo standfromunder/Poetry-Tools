@@ -120,9 +120,6 @@ class Poetry:
                     if syllables2[-syls:] == syllables1_without_acc[-syls:]:
                         # print(syllables, syllables2)
                         return True
-            # syllables = self.replace_syllables(syllables)
-            # syllables = self.add_stunning_consonants(syllables)
-            # syllables = self.replace_vowel(syllables)
             for syllables2 in pronunciations2:
                 print(syllables, syllables2)
                 if num_vowels2 == 1 or len(syllables2) == 1:
@@ -134,18 +131,6 @@ class Poetry:
                     if syllables[-syls:] == syllables2_without_acc[-syls:]:
                         # print(syllables, syllables2)
                         return True
-
-                # syllables2 = self.replace_syllables(syllables2)
-                # syllables2 = self.add_stunning_consonants(syllables2)
-                # syllables2 = self.replace_vowel(syllables2)
-                # if '0' in syllables[-1] or '0' in syllables2[-1]:
-                #
-                #     if syllables[-syls-1:-1] == syllables2[-syls:]:
-                #         return True
-                #     elif syllables[-syls:] == syllables2[-syls-1:-1]:
-                #         return True
-                #     elif syllables[-syls-1:-1] == syllables2[-syls-1:-1]:
-                #         return True
                 if syllables[-syls:] == syllables2[-syls:]:
                     # print(syllables, syllables2)
                     return True
@@ -153,59 +138,12 @@ class Poetry:
             return True
         return False
 
-        # if pronunciations[-syls:] == pronunciations2[-syls:]:
-        #     #print(syllables, syllables2)
-        #     return True
-        # return False
 
     def is_accented(self, word):
         for acc in word:
             if '+' in acc:
                 return True
         return False
-
-
-    # def rhyme2(self, word1, word2):
-    #     self.__russian_vowels = {'а', 'о', 'у', 'э', 'ы', 'и', 'я', 'ё', 'ю', 'е'}
-    #     word1_with_accent = Accentor().do_accents([[word1]])[0][0]
-    #     word2_with_accent = Accentor().do_accents([[word2]])[0][0]
-    #     rhyme_pairs = \
-    #         [('и', 'ы'), ('и', 'ый'), ('ы', 'ый'), ('и', 'е'), ('и', 'ий'), ('у','уй'),
-    #      ('ой', 'о'), ('кий', 'ки'), ('ей', 'е'), ('ай', 'о'), ('ой', 'а'), ('ей', 'и'),
-    #      ('ий', 'е'), ('и', 'ьи'), ('и', 'ья'), ('ьи', 'ья'), ('и', 'ье'), ('е', 'ье'),
-    #      ('к', 'г'), ('х', 'к',), ('г', 'х'), ('а', 'о'), ('е', 'и'), ('ья', 'ье'),
-    #      ('ьи', 'ье'), ('ом', 'ым'), ('ит', 'ет'), ('ин', 'ен'), ('ий', 'а'), ('ой', 'а'),
-    #      ('ый', 'а'), ('о', 'у'), ('уг', 'ок'), ('ах', 'ых'), ('е', 'ы'), ('ив', 'ов'),
-    #      ('и', 'ой'), ('и', 'а'), ('я', 'и'), ('а', 'ы'), ('ы', 'у'), ('я', 'е'),
-    #      ('ы', 'о'), ('ый', 'о'), ('ы', 'ой'), ('у', 'ой'), ('у', 'ый'), ('ы', 'ей'),
-    #      ('ешь', 'ишь'), ('он', 'ен'), ('ел', 'ол'), ('ей', 'ой'), ('ом', 'ем'),
-    #      ('ть', 'дь'), ('д', 'т'), ('ор', 'ер'), ('ом', 'им'), ('ой', 'ый')]
-    #     if '+' in word1_with_accent and '+' in word2_with_accent:
-    #         vowels_counter = 0
-    #         for i,cur in enumerate(word1_with_accent[::-1]):
-    #             if cur in self.__russian_vowels:
-    #                 vowels_counter += 1
-    #                 if '+'==word1_with_accent[-i]:
-    #                     str_syl_1 = vowels_counter
-    #                     break
-    #         vowels_counter = 0
-    #         for i, cur in enumerate(word2_with_accent[::-1]):
-    #             if cur in self.__russian_vowels:
-    #                 vowels_counter += 1
-    #                 if '+' == word1_with_accent[-i]:
-    #                     str_syl_2 = vowels_counter
-    #                     break
-    #         if str_syl_1 == str_syl_2:
-    #             for pair in rhyme_pairs:
-    #                 if word1[-len(pair[0]):] == pair[0] and word2[-len(pair[1]):] == pair[1]:
-    #                     return True
-    #                 elif word2[-len(pair[0]):] == pair[0] and word1[-len(pair[1]):] == pair[1]:
-    #                     return True
-    #                 elif word1[-2:] == word2[-2:]:
-    #                     return True
-    #     else:
-    #         pass
-    #     return False
 
 
     def rhyme_scheme(self, tokenized_poem):
